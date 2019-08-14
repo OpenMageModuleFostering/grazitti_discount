@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Grazitti_Discount</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Individual Promotions</summary>
+    <description>Empowers you to provide some special favors to specific customers. With Individual Promotions module you can create coupons and shopping cart price rules for individual customers.</description>
+    <notes>For Individual Discount 4-29-16</notes>
+    <authors><author><name>Mamta</name><user>mamta</user><email>mamtas@grazitti.com</email></author></authors>
+    <date>2016-04-29</date>
+    <time>09:36:49</time>
+    <contents><target name="magelocal"><dir><dir name="app"><dir name="design"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="discount.xml" hash=""/></dir></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="app"><dir name="etc"><dir name="modules"><file name="Grazitti_Discount.xml" hash=""/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
