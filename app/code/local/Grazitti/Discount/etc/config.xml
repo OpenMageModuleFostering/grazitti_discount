@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Individual Discount 
+ * @package    Grazitti_Discount
+ * @author     Grazitti
+ */
+ -->
+<config>
+    <modules>
+        <Grazitti_Discount>
+            <version>0.1.0</version>
+        </Grazitti_Discount>
+    </modules>
+    <frontend>
+        <routers>
+            <discount>
+                <use>standard</use>
+                <args>
+                    <module>Grazitti_Discount</module>
+                    <frontName>discount</frontName>
+                </args>
+            </discount>
+        </routers>
+        <layout>
+            <updates>
+                <discount>
+                    <file>discount.xml</file>
+                </discount>
+            </updates>
+        </layout>
+    </frontend>  
+	<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Grazitti_Discount before="Mage_Adminhtml">Grazitti_Discount_Adminhtml</Grazitti_Discount>
+                    </modules>
+                </args>
+            </adminhtml>
+	
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<discount module="discount">
+				<title>Discount</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="discount">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>discount/adminhtml_discount</action>
+					</items>
+				</children>
+			</discount>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Grazitti_Discount>
+							<title>Discount Module</title>
+							<sort_order>10</sort_order>
+						</Grazitti_Discount>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<discount>
+					<file>discount.xml</file>
+				</discount>
+			</updates>
+		</layout>
+		<events>
+            <salesrule_rule_save_before>
+                <observers>
+                    <grazitti_save_product_data>
+                        <type>singleton</type>
+                        <class>discount/observer</class>
+                        <method>saveProductTabData1</method>
+                    </grazitti_save_product_data>
+                </observers>
+            </salesrule_rule_save_before>
+        </events>
+    </adminhtml>   
+    <global>
+        <models>
+            <discount>
+                <class>Grazitti_Discount_Model</class>
+                <resourceModel>discount_mysql4</resourceModel>
+            </discount>
+            <discount_mysql4>
+                <class>Grazitti_Discount_Model_Mysql4</class>
+                <entities>
+                    <discount>
+                        <table>discount</table>
+                    </discount>
+                </entities>
+            </discount_mysql4>
+			<salesrule>
+				<rewrite>
+				  <validator>Grazitti_Discount_Model_Validator</validator>
+				</rewrite>
+			</salesrule>
+        </models>
+        <resources>
+            <discount_setup>
+                <setup>
+                    <module>Grazitti_Discount</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </discount_setup>
+            <discount_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </discount_write>
+            <discount_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </discount_read>
+        </resources>
+        <blocks>
+            <discount>
+                <class>Grazitti_Discount_Block</class>
+            </discount>
+			<adminhtml>
+			<rewrite>
+				<promo_quote_edit_tabs>Grazitti_Discount_Block_Adminhtml_Discount_Edit_Tabs</promo_quote_edit_tabs>
+			</rewrite>
+			</adminhtml>
+        </blocks>
+        <helpers>
+            <discount>
+                <class>Grazitti_Discount_Helper</class>
+            </discount>
+        </helpers>
+    </global>
+</config>

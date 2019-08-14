@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <discount_adminhtml_discount_index>
+        <reference name="content">
+            <block type="discount/adminhtml_discount" name="discount" />
+        </reference>
+    </discount_adminhtml_discount_index>
+	<!--  <adminhtml_promo_quote_edit>
+           <reference name="promo_quote_edit_tabs">
+                <action method="addTab">
+                     <name>promo_quote_edit_tab_custom</name>
+                     <block>discount/adminhtml_promo_quote_edit_tab_custom</block>
+                 </action>
+            </reference>
+      </adminhtml_promo_quote_edit> -->
+	  
+	  <adminhtml_promo_quote_grid>
+       <block type="core/text_list" name="root" output="toHtml">
+           <block type="discount/adminhtml_promo_quote_edit_tab_custom" name="customer.grid"/>
+           <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+               <reference name="grid_serializer">
+                   <action method="initSerializerBlock">
+                       <grid_block_name>customer.grid</grid_block_name>
+                       <data_callback>getSelectedCustomers</data_callback>
+                       <hidden_input_name>links[customers]</hidden_input_name>
+                       <reload_param_name>customers</reload_param_name>
+                   </action>
+                   <action method="addColumnInputName">
+                       <input_name>position</input_name>
+                   </action>
+               </reference>
+           </block>
+       </block>
+   </adminhtml_promo_quote_grid>
+   <adminhtml_promo_quote_customergrid>
+	        <block type="core/text_list" name="root" output="toHtml">
+	            <block type="discount/adminhtml_promo_quote_edit_tab_custom" name="customer.grid"/>
+	        </block>
+	</adminhtml_promo_quote_customergrid>
+</layout>
