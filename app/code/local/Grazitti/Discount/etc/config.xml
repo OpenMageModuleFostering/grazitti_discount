@@ -43,7 +43,7 @@
         </routers>
     </admin>
     <adminhtml>
-		<menu>
+		<!--<menu>
 			<discount module="discount">
 				<title>Discount</title>
 				<sort_order>71</sort_order>               
@@ -55,7 +55,7 @@
 					</items>
 				</children>
 			</discount>
-		</menu>
+		</menu>-->
 		<acl>
 			<resources>
 				<all>
