@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Grazitti_Discount",
+    "name": "OpenMageModuleFostering\/Grazitti_Discount",
     "type": "magento-module",
     "license": "OSL",
     "homepage": "",
     "description": "Individual Promotions",
     "authors": [
-    {
-        "name": "Mamta",
-        "email": "mamtas@grazitti.com"
-    }
-],
+        {
+            "name": "Mamta",
+            "email": "mamtas@grazitti.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
